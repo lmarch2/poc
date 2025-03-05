@@ -77,3 +77,8 @@ Base64: NX4lYjQl
 ## reproduce  
 run `python3 infra/helper.py reproduce hiredis format_command_fuzzer build/out/hiredis/crash-b84184407f3c266230921208e49070928ddf1392`
 or `./format_command_fuzzer crash_input.bin`
+
+## Affected component(s)
+`sds.c`, `sdscatlen` function, Redis command formatting utilities  
+## Attack vector(s)
+Sending crafted command sequences containing unvalidated binary formatting specifiers (e.g. `%b` with oversized length) through affected API endpoints.

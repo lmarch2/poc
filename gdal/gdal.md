@@ -101,3 +101,8 @@ Base64: RlVaWkVSX0ZSSUVORExZX0FSQ0hJVkUKKioqTkVXRklMRSoqKjpjbWQudHh0Cm5vbl9zc3Jz
 ```
 ## reproduce 
 run `python3 infra/helper.py reproduce gdal gdal_vector_translate_fuzzer build/out/gdal/crash-d34ee7e1399d2568aface7996c171017b2c0465a`
+
+## Affected component(s)
+`ogrspatialreference.cpp`, `OGRSpatialReference::Release` function, `ogr2ogr` command-line tool  
+## Attack vector(s)
+Processing specially crafted spatial reference data (e.g. using `-t_srs` parameter with malicious LOCAL_CS definitions) through vector translation operations.
