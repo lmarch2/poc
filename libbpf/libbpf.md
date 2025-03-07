@@ -105,4 +105,5 @@ int main() {
 }
 ```
 Specially, run `gcc poc.c -o poc  -I /src/libbpf/include /src/libbpf/src/libbpf.a  -lelf -lz -fsanitize=address` and `./poc`
+or run `python3 infra/helper.py reproduce libbpf bpf-object-fuzzer build/out/libbpf/crash-04573b0232eeaed1b2cd9f10e4fadc122c560e7a` via oss-fuzz script
 
